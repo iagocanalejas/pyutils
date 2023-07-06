@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyutils"
+version = "0.1.0"
+description = "A set of python utility functions."
+readme = "README.md"
+license = { file = "LICENSE.md" }
+authors = [{ name = "Iago Santos" }]
+requires-python = ">=3.11"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyutils*"]
+
+[tool.setuptools.package-data]
+pyutils = ["py.typed"]
+
+[tool.pyright]
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+deprecateTypingAliases = true
+
+[tool.mypy]
+files = "pyutils"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = '(^tests/|^tests$)'
