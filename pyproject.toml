@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyutils"
+version = "0.1.0"
+description = "A set of python utility functions."
+readme = "README.md"
+license = { file = "LICENSE.md" }
+authors = [{ name = "Iago Santos" }]
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyutils*"]
+
+[tool.pyright]
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+deprecateTypingAliases = true
