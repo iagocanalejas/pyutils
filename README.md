@@ -32,3 +32,5 @@ A set of common used functions/classes I end up using in my projects.
     - BICValidator
     - IBANValidator
     - DNIValidator
+    - is_valid_dni
+    - is_valid_email
