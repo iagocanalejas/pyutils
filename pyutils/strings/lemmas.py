@@ -54,12 +54,12 @@ def normalize_synonyms(phrase: str, synonyms: Dict[str, List[str]]) -> str:
     """
     Normalize synonyms in a given phrase by replacing them with their corresponding keys.
 
-    The `normalize_synonyms` function takes a phrase and a dictionary of synonyms as input and returns the normalized phrase
-    with all the synonyms replaced by their corresponding keys.
+    The `normalize_synonyms` function takes a phrase and a dictionary of synonyms as input and returns the normalized
+    phrase with all the synonyms replaced by their corresponding keys.
 
     Parameters:
         phrase (str): The input phrase in which synonyms need to be normalized.
-        synonyms (Dict[str, List[str]]): A dictionary containing synonyms as keys and lists of corresponding words as values.
+        synonyms (Dict[str, List[str]]): A dict containing synonyms as keys and lists of corresponding words as values.
 
     Returns:
         str: The normalized phrase with all the synonyms replaced by their corresponding keys.

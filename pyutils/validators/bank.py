@@ -1,6 +1,5 @@
 import string
 
-
 # Dictionary of ISO country code to IBAN length.
 #
 # The official IBAN Registry document is the best source for up-to-date information about IBAN formats and which
@@ -392,10 +391,10 @@ class IBANValidator:
             self.validation_countries.update(NORDEA_COUNTRY_CODE_LENGTH)
 
         if self.include_countries:
-            for country_code in self.include_countries:
-                if country_code not in self.validation_countries:
+            for code in self.include_countries:
+                if code not in self.validation_countries:
                     raise ValueError(
-                        f"Explicitly requested country code {country_code} is not part of the configured IBAN validation set."
+                        f"Explicitly requested country code {code} is not part of the configured IBAN validation set."
                     )
 
     def __eq__(self, other):
