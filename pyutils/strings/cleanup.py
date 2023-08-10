@@ -11,9 +11,12 @@ def remove_parenthesis(word: str) -> str:
     return whitespaces_clean(re.sub(r"\([\w\-_−–#: !+]*\)", "", word))
 
 
-def remove_symbols(word: str, ignore_quotes: bool = False) -> str:
-    reg = r'[^\S\-"\'<>]' if ignore_quotes else r"[^\S\-<>]"
-    return whitespaces_clean(re.sub(reg, " ", word))
+def remove_symbols(word: str, preserve_quotes: bool = False) -> str:
+    word = re.sub(r"[^\S\- ]", "", word)
+    if not preserve_quotes:
+        # maybe I'm dumb but I'm unable to do this within the regex
+        word = word.replace('"', " ").replace("'", " ")
+    return whitespaces_clean(word)
 
 
 def remove_roman(word: str) -> str:
