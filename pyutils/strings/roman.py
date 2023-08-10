@@ -40,4 +40,3 @@ def roman_to_int(s: str) -> int:
             num += roman[s[i]]
             i += 1
     return num
-

@@ -8,4 +8,3 @@ def all_not_none(*args):
 
 def all_or_none(*args):
     return all_none(*args) or all_not_none(*args)
-
