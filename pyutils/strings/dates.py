@@ -1,3 +1,4 @@
+import locale
 import re
 from datetime import date, datetime
 from typing import Optional
@@ -48,19 +49,32 @@ DATE_FORMATS = [
     "%B %d %y",
 ]
 
+def _try_set_locale(language: Optional[str]):
+    if not language:
+        return
+    try:
+        locale.setlocale(locale.LC_TIME, language)
+    except locale.Error:
+        pass
 
-def find_date(w: str) -> Optional[date]:
+
+def find_date(maybe_date_str: str, language: Optional[str] = None) -> Optional[date]:
     """
     :return: any matching date in the DATE_FORMATS
     """
-    match = re.search(r"\b\d{1,2}[-\/.\s]\w+[-\/.\s]\d{2}\d{0,2}\b", w)
+    match = re.search(r"\b\d{1,2}[-\/.\s]\w+[-\/.\s]\d{2}\d{0,2}\b", maybe_date_str)
     if not match:
         return None
 
-    date = match.group()
+    default_locale = locale.getlocale(locale.LC_TIME)
+    _try_set_locale(language)
+
+    maybe_date = match.group()
     for format in DATE_FORMATS:
         try:
-            return datetime.strptime(date, format).date()
+            date = datetime.strptime(maybe_date, format).date()
+            locale.setlocale(locale.LC_TIME, default_locale)
+            return date
         except ValueError:
             pass
     return None
