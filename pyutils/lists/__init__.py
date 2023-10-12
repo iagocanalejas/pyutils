@@ -1,1 +1,1 @@
-from .utils import flatten
+from .utils import flatten, chunk
