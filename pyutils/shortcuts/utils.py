@@ -1,5 +1,5 @@
 import uuid
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def generate_unique_code(length: int = 8) -> str:
@@ -9,7 +9,7 @@ def generate_unique_code(length: int = 8) -> str:
     return uuid.uuid4().hex[:length].upper()
 
 
-def copy(d: Dict[str, Any], exclude: Optional[List[str]] = None):
+def copy(d: dict[str, Any], exclude: list[str] | None = None):
     """
     :param d: valid dictionary
     :param exclude: keys to exclude

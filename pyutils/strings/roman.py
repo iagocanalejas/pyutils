@@ -1,8 +1,7 @@
 import re
-from typing import Optional
 
 
-def find_roman(word: str) -> Optional[str]:
+def find_roman(word: str) -> str | None:
     """
     :return: #word if #word is a roman number
     """
