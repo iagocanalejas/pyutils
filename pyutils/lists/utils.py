@@ -1,15 +1,9 @@
-from typing import Generator, Iterable, List, TypeVar
-
-T = TypeVar("T")
+from typing import Any, Generator, Iterable
 
 
-def flatten(xs: Iterable[T | Iterable[T]]) -> Generator[T, None, None]:
+def flatten(xs: Iterable[Any | Iterable[Any]]) -> Generator[Any, None, None]:
     for x in xs:
         if isinstance(x, Iterable) and not isinstance(x, (str, bytes)):
             yield from flatten(x)
         else:
             yield x
-
-
-def chunk(input_list: List[T], chunk_size: int) -> List[List[T]]:
-    return [input_list[i : i + chunk_size] for i in range(0, len(input_list), chunk_size)]
