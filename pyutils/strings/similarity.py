@@ -1,5 +1,4 @@
 from difflib import SequenceMatcher
-from typing import List, Optional, Tuple
 
 
 def levenshtein_distance(s1: str, s2: str) -> float:
@@ -26,7 +25,7 @@ def levenshtein_distance(s1: str, s2: str) -> float:
     return matrix[-1][-1]
 
 
-def closest_result(keyword: str, elements: List[str]) -> Tuple[Optional[str], float]:
+def closest_result(keyword: str, elements: list[str]) -> tuple[str | None, float]:
     if any(e == keyword for e in elements):
         return keyword, 1.
 

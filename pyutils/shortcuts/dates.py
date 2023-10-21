@@ -8,7 +8,7 @@ def week_to_date(week: int, year: int) -> datetime:
     :param year: number
     :return: datetime
     """
-    ret = datetime.strptime('{}-W{}'.format(year, week) + '-1', "%Y-W%W-%w")
+    ret = datetime.strptime(f'{year}-W{week}' + '-1', "%Y-W%W-%w")
     if date(year, 1, 4).isoweekday() > 4:
         """
         ISO defines week one to contain January 4th so the result is off by one iff the first Monday and 4 January are

@@ -1,7 +1,4 @@
-from typing import Dict, List, Optional
-
-
-def expand_lemmas(lemmas: List[str], expansions: List[List[Optional[str]]]) -> List[List[str]]:
+def expand_lemmas(lemmas: list[str], expansions: list[list[str | None]]) -> list[list[str]]:
     """
     Expand the original lemmas with optional expansion words to create new combinations.
 
@@ -50,7 +47,7 @@ def expand_lemmas(lemmas: List[str], expansions: List[List[Optional[str]]]) -> L
     return expanded_combinations
 
 
-def normalize_synonyms(phrase: str, synonyms: Dict[str, List[str]]) -> str:
+def normalize_synonyms(phrase: str, synonyms: dict[str, list[str]]) -> str:
     """
     Normalize synonyms in a given phrase by replacing them with their corresponding keys.
 

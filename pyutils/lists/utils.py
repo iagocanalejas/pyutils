@@ -1,4 +1,5 @@
-from typing import Any, Generator, Iterable
+from collections.abc import Generator, Iterable
+from typing import Any
 
 
 def flatten(xs: Iterable[Any | Iterable[Any]]) -> Generator[Any, None, None]:

@@ -1,7 +1,6 @@
 import locale
 import re
 from datetime import date, datetime
-from typing import Optional
 
 DATE_FORMATS = [
     "%d-%m-%Y",
@@ -49,7 +48,7 @@ DATE_FORMATS = [
     "%B %d %y",
 ]
 
-def _try_set_locale(language: Optional[str]):
+def _try_set_locale(language: str | None):
     if not language:
         return
     try:
@@ -58,7 +57,7 @@ def _try_set_locale(language: Optional[str]):
         pass
 
 
-def find_date(maybe_date_str: str, language: Optional[str] = None) -> Optional[date]:
+def find_date(maybe_date_str: str, language: str | None = None) -> date | None:
     """
     :return: any matching date in the DATE_FORMATS
     """
