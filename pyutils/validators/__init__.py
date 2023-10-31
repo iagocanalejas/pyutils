@@ -1,3 +1,3 @@
-from .bank import BICValidator, IBANValidator  # pyright: ignore
-from .dni import DNIValidator, is_valid_dni  # pyright: ignore
-from .email import is_valid_email  # pyright: ignore
+from .bank import BICValidator as BICValidator, IBANValidator as IBANValidator
+from .dni import DNIValidator as DNIValidator, is_valid_dni as is_valid_dni
+from .email import is_valid_email as is_valid_email

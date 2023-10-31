@@ -2,6 +2,9 @@ from difflib import SequenceMatcher
 
 
 def levenshtein_distance(s1: str, s2: str) -> float:
+    """
+    :return: Levenshtein distance between two strings
+    """
     # Create a matrix with dimensions (len(s1) + 1) x (len(s2) + 1)
     matrix = [[0] * (len(s2) + 1) for _ in range(len(s1) + 1)]
 
@@ -18,7 +21,7 @@ def levenshtein_distance(s1: str, s2: str) -> float:
             matrix[i][j] = min(
                 matrix[i - 1][j] + 1,  # Deletion
                 matrix[i][j - 1] + 1,  # Insertion
-                matrix[i - 1][j - 1] + cost  # Substitution
+                matrix[i - 1][j - 1] + cost,  # Substitution
             )
 
     # The Levenshtein distance is the value in the bottom-right cell of the matrix
@@ -26,14 +29,17 @@ def levenshtein_distance(s1: str, s2: str) -> float:
 
 
 def closest_result(keyword: str, elements: list[str]) -> tuple[str | None, float]:
+    """
+    :return: the closest element to the keyword and its similarity ratio
+    """
     if any(e == keyword for e in elements):
-        return keyword, 1.
+        return keyword, 1.0
 
     best_distance = SequenceMatcher(a=keyword, b=elements[0]).ratio()
     best_word = elements[0]
     for possibility in elements:
         if all(w in keyword for w in possibility.split()) and all(w in possibility for w in keyword.split()):
-            return possibility, 1.
+            return possibility, 1.0
 
         d = SequenceMatcher(a=keyword, b=possibility).ratio()
         if d > best_distance:

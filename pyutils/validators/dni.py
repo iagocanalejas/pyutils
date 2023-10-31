@@ -5,6 +5,9 @@ numbers = "1234567890"
 
 
 def is_valid_dni(dni: str) -> bool:
+    """
+    :return: True if the DNI is valid
+    """
     if len(dni) == 9:
         dig_control = dni[8]
         dni = dni[:8]
