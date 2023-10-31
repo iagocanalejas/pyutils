@@ -4,6 +4,7 @@ from .cleanup import (
     remove_parenthesis,  # pyright: ignore
     remove_conjunctions,  # pyright: ignore
     remove_roman,  # pyright: ignore
+    remove_genders,  # pyright: ignore
 )
 from .dates import find_date  # pyright: ignore
 from .lemmas import expand_lemmas, normalize_synonyms  # pyright: ignore

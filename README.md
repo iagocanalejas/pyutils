@@ -21,6 +21,7 @@ A set of common used functions/classes I end up using in my projects.
     - remove_parenthesis
     - remove_conjunctions
     - remove_roman
+    - remove_genders
     - find_date
     - int_to_roman
     - roman_to_int
