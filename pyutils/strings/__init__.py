@@ -1,4 +1,5 @@
 from .cleanup import (
+    unaccent as unaccent,
     whitespaces_clean as whitespaces_clean,
     remove_symbols as remove_symbols,
     remove_parenthesis as remove_parenthesis,

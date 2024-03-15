@@ -17,6 +17,7 @@ A set of common used functions/classes I end up using in my projects.
 
 # Strings
 
+    - unaccent
     - whitespaces_clean
     - remove_symbols
     - remove_parenthesis

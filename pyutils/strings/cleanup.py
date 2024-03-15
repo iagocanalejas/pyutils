@@ -1,6 +1,14 @@
 import re
+import unicodedata
 
 from .roman import find_roman
+
+
+def unaccent(text: str) -> str:
+    """
+    :return text without accents
+    """
+    return "".join(c for c in unicodedata.normalize("NFD", text) if not unicodedata.combining(c))
 
 
 def whitespaces_clean(text: str) -> str:
