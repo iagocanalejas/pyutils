@@ -19,3 +19,7 @@ from .similarity import (
     levenshtein_distance as levenshtein_distance,
 )
 from .integer import int_or_none as int_or_none
+from .normalize import (
+    match_normalization as match_normalization,
+    apply_replaces as apply_replaces,
+)

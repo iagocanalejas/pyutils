@@ -31,6 +31,8 @@ A set of common used functions/classes I end up using in my projects.
     - find_roman
     - closest_result
     - levenshtein_distance
+    - match_normalizations
+    - apply_replaces
 
 # Validators
 
