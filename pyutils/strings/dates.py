@@ -48,11 +48,12 @@ DATE_FORMATS = [
     "%B %d %y",
 ]
 
+
 def _try_set_locale(language: str | None):
     if not language:
         return
     try:
-        locale.setlocale(locale.LC_TIME, language)
+        _ = locale.setlocale(locale.LC_TIME, language)
     except locale.Error:
         pass
 
@@ -72,7 +73,7 @@ def find_date(maybe_date_str: str, language: str | None = None) -> date | None:
     for format in DATE_FORMATS:
         try:
             date = datetime.strptime(maybe_date, format).date()
-            locale.setlocale(locale.LC_TIME, default_locale)
+            _ = locale.setlocale(locale.LC_TIME, default_locale)
             return date
         except ValueError:
             pass

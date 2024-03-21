@@ -36,7 +36,7 @@ def expand_lemmas(lemmas: list[str], expansions: list[list[str | None]]) -> list
         expanded_combinations = [[w for w in combination if w not in group] for combination in expanded_combinations]
 
         # add new expansions
-        new_expanded_combinations = []
+        new_expanded_combinations: list[list[str]] = []
         for combination in expanded_combinations:
             for word in group:
                 new_combination = combination.copy()

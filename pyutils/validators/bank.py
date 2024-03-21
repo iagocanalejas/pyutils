@@ -1,4 +1,5 @@
 import string
+from typing import override
 
 # Dictionary of ISO country code to IBAN length.
 #
@@ -382,7 +383,8 @@ ISO_3166_1_ALPHA2_COUNTRY_CODES = (
 class IBANValidator:
     """A validator for International Bank Account Numbers (IBAN - ISO 13616-1:2007)."""
 
-    def __init__(self, use_nordea_extensions=False, include_countries=None):
+    def __init__(self, use_nordea_extensions: bool = False, include_countries: list[str] | None = None):
+        super().__init__()
         self.use_nordea_extensions = use_nordea_extensions
         self.include_countries = include_countries
 
@@ -397,14 +399,16 @@ class IBANValidator:
                         f"Explicitly requested country code {code} is not part of the configured IBAN validation set."
                     )
 
-    def __eq__(self, other):
+    @override
+    def __eq__(self, other: object, /) -> bool:
         return (
-            self.use_nordea_extensions == other.use_nordea_extensions
+            isinstance(other, IBANValidator)
+            and self.use_nordea_extensions == other.use_nordea_extensions
             and self.include_countries == other.include_countries
         )
 
     @staticmethod
-    def iban_checksum(value):
+    def iban_checksum(value: str):
         """
         Returns check digits for an input IBAN number.
         Original checksum in input value is ignored.
@@ -426,7 +430,7 @@ class IBANValidator:
         # 3. The remainder of the number above when divided by 97 is then subtracted from 98.
         return "%02d" % (98 - int(value_digits) % 97)
 
-    def __call__(self, value):
+    def __call__(self, value: str | None) -> None:
         """
         Validates the IBAN value using the official IBAN validation algorithm.
         https://en.wikipedia.org/wiki/International_Bank_Account_Number#Validating_the_IBAN
@@ -460,11 +464,12 @@ class BICValidator:
     https://en.wikipedia.org/wiki/ISO_9362#Structure
     """
 
+    @override
     def __eq__(self, _):
         # There is no outside modification of properties so this should always be true by default.
         return True
 
-    def __call__(self, value):
+    def __call__(self, value: str | None) -> None:
         if value is None:
             return value
 

@@ -23,6 +23,6 @@ class DNIValidator:
     external_map = {"X": "0", "Y": "1", "Z": "2"}
     numbers = "1234567890"
 
-    def __call__(self, value):
+    def __call__(self, value: str):
         dni = value.upper()
         return is_valid_dni(dni)

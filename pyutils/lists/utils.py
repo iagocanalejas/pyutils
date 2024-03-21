@@ -1,11 +1,12 @@
-from collections.abc import Generator, Iterable
+from collections.abc import Iterable
 from typing import Any
 
+IterableAny = Iterable[Any | Iterable["IterableAny"]]
 
-def flatten(xs: Iterable[Any | Iterable[Any]]) -> Generator[Any, None, None]:
+
+def flatten(xs: IterableAny) -> Iterable[Any]:
     """
     Flatten an iterable of iterables into a single iterable.
-
     :return: Flattened iterable
     """
     for x in xs:

@@ -4,6 +4,8 @@ from pyutils.strings.lemmas import expand_lemmas
 
 
 class TestLemmatizer(unittest.TestCase):
+    expansions: list[list[str | None]] = []
+
     def setUp(self):
         self.expansions = [
             ["trofeo", "bandera"],
