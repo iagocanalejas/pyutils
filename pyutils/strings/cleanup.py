@@ -18,10 +18,12 @@ def whitespaces_clean(text: str) -> str:
     return re.sub(r"\s", " ", re.sub(r"\s+", " ", text)).strip()
 
 
-def remove_parenthesis(text: str) -> str:
+def remove_parenthesis(text: str, preserve_content: bool = False) -> str:
     """
     :return text without parenthesis and its content
     """
+    if preserve_content:
+        return whitespaces_clean(text.replace("(", "").replace(")", ""))
     return whitespaces_clean(re.sub(r"\([\w\-_−–#: !+]*\)", "", text))
 
 
