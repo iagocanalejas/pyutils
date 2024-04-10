@@ -1,3 +1,14 @@
+from collections.abc import Generator
+from typing import Any
+
+
+def none(g: Generator[Any, Any, Any]) -> bool:
+    """
+    :return: True if the generator is empty
+    """
+    return not any(g)
+
+
 def all_none(*args: object | None) -> bool:
     """
     :return: True if all arguments are None
