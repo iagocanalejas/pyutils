@@ -7,7 +7,7 @@ from .cleanup import (
     remove_roman as remove_roman,
     remove_genders as remove_genders,
 )
-from .dates import find_date as find_date
+from .dates import find_date as find_date, DATE_FORMATS as DATE_FORMATS
 from .lemmas import expand_lemmas as expand_lemmas, normalize_synonyms as normalize_synonyms
 from .roman import (
     int_to_roman as int_to_roman,

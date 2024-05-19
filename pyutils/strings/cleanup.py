@@ -91,6 +91,7 @@ def remove_conjunctions(text: str) -> str:
         "SES",
         "ES",
         "SA",
+        "POR",
         "Y",
     ]
     return " ".join(i for i in text.split() if i not in conjunctions)
