@@ -1,6 +1,6 @@
 import unittest
 
-from pyutils.strings.lemmas import expand_lemmas
+from pyutils.strings.lemma import expand_lemmas
 
 
 class TestLemmatizer(unittest.TestCase):

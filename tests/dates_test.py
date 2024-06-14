@@ -1,6 +1,6 @@
 import unittest
 
-from pyutils.strings.dates import find_date
+from pyutils.strings.datetime import find_date
 
 
 class TestDates(unittest.TestCase):
