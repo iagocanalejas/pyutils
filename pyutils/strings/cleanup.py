@@ -45,53 +45,57 @@ def remove_roman(text: str) -> str:
     return whitespaces_clean(" ".join(w for w in text.split() if find_roman(re.sub(r"[\'\".:]", "", w)) is None))
 
 
+GENDERS = [
+    "FEMENINA",
+    "FEMENINO",
+    "MASCULINA",
+    "MASCULINO",
+    "FEMININA",
+    "FEMININO",
+    "FEMINAS",
+    "EMAKUMEEN",
+    "EMAKUMEAK",
+    "NESKEN",
+    "NESKA",
+    "EMAKUMEZKOEN",
+]
+
+
 def remove_genders(text: str) -> str:
     """
     :return text without gendered words
     """
-    genders = [
-        "FEMENINA",
-        "FEMENINO",
-        "MASCULINA",
-        "MASCULINO",
-        "FEMININA",
-        "FEMININO",
-        "FEMINAS",
-        "EMAKUMEEN",
-        "EMAKUMEAK",
-        "NESKEN",
-        "NESKA",
-        "EMAKUMEZKOEN",
-    ]
-    return " ".join(i for i in text.split() if i not in genders)
+    return " ".join(i for i in text.split() if i not in GENDERS)
+
+
+CONJUNCTIONS = [
+    "EL",
+    "LA",
+    "LOS",
+    "LAS",
+    "O",
+    "A",
+    "OS",
+    "AS",
+    "DE",
+    "DA",
+    "DO",
+    "DAS",
+    "DOS",
+    "DEL",
+    "L",
+    "ELS",
+    "LES",
+    "SES",
+    "ES",
+    "SA",
+    "POR",
+    "Y",
+]
 
 
 def remove_conjunctions(text: str) -> str:
     """
     :return: text without conjunctions
     """
-    conjunctions = [
-        "EL",
-        "LA",
-        "LOS",
-        "LAS",
-        "O",
-        "A",
-        "OS",
-        "AS",
-        "DE",
-        "DA",
-        "DO",
-        "DAS",
-        "DOS",
-        "DEL",
-        "L",
-        "ELS",
-        "LES",
-        "SES",
-        "ES",
-        "SA",
-        "POR",
-        "Y",
-    ]
-    return " ".join(i for i in text.split() if i not in conjunctions)
+    return " ".join(i for i in text.split() if i not in CONJUNCTIONS)

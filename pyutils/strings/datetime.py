@@ -97,7 +97,7 @@ def find_date(maybe_date_str: str, day_first: bool | None = None) -> date | None
 
 
 def find_time(maybe_time_str: str) -> time | None:
-    time = re.search(r"(\d{2}:\d{2}([\.,]\d{2})?)", maybe_time_str)
+    time = re.search(r"(\d{2}:\d{2}([\.,]\d{1,2})?)", maybe_time_str)
     if not time:
         return None
 

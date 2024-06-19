@@ -6,6 +6,8 @@ from .cleanup import (
     remove_conjunctions as remove_conjunctions,
     remove_roman as remove_roman,
     remove_genders as remove_genders,
+    GENDERS as GENDERS,
+    CONJUNCTIONS as CONJUNCTIONS,
 )
 from .datetime import (
     find_date as find_date,
