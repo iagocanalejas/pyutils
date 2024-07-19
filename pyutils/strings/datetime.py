@@ -56,18 +56,18 @@ _DATE_FORMATS = [
 
 
 _MONTHS_MAP = {
-    "01": ["ENERO", "JANUARY"],
-    "02": ["FEBRERO", "FEBRUARY"],
+    "01": ["ENERO", "JANUARY", "XANEIRO"],
+    "02": ["FEBRERO", "FEBRUARY", "FEBREIRO"],
     "03": ["MARZO", "MARCH"],
     "04": ["ABRIL", "APRIL"],
-    "05": ["MAYO", "MAY"],
-    "06": ["JUNIO", "JUNE"],
-    "07": ["JULIO", "JULY"],
+    "05": ["MAYO", "MAY", "MAIO"],
+    "06": ["JUNIO", "JUNE", "XUÑO"],
+    "07": ["JULIO", "JULY", "XULLO"],
     "08": ["AGOSTO", "AUGUST"],
-    "09": ["SEPTIEMBRE", "SEPTEMBER"],
-    "10": ["OCTUBRE", "OCTOBER"],
-    "11": ["NOVIEMBRE", "NOVEMBER"],
-    "12": ["DICIEMBRE", "DECEMBER"],
+    "09": ["SEPTIEMBRE", "SEPTEMBER", "SETEMBRO"],
+    "10": ["OCTUBRE", "OCTOBER", "OUTUBRO"],
+    "11": ["NOVIEMBRE", "NOVEMBER", "NOVEMBRO"],
+    "12": ["DICIEMBRE", "DECEMBER", "DECEMBRO"],
 }
 
 DATE_FORMATS = _DAY_FIRST_DATE_FORMATS + _DATE_FORMATS
