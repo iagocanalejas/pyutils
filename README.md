@@ -22,6 +22,7 @@ A set of common used functions/classes I end up using in my projects.
     - remove_symbols
     - remove_parenthesis
     - remove_conjunctions
+    - lstrip_conjunctions
     - remove_roman
     - remove_genders
     - find_date

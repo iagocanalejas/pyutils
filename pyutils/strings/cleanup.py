@@ -99,3 +99,14 @@ def remove_conjunctions(text: str) -> str:
     :return: text without conjunctions
     """
     return " ".join(i for i in text.split() if i not in CONJUNCTIONS)
+
+
+def lstrip_conjunctions(text: str) -> str:
+    """
+    :return: text without starter conjunctions
+    """
+    words = text.split()
+    for idx, word in enumerate(words):
+        if word not in CONJUNCTIONS:
+            return " ".join(words[idx:])
+    return ""
