@@ -17,3 +17,11 @@ def copy[T](d: dict[str, T], exclude: list[str] | None = None) -> dict[str, T]:
     if exclude is None:
         exclude = []
     return {k: v for k, v in d.items() if k not in exclude}
+
+
+def clean_dict(d: dict) -> dict:
+    """
+    :param d: valid dictionary
+    :return: A copy of the given dict without None values
+    """
+    return {k: v for k, v in d.items() if v is not None}
