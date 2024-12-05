@@ -9,8 +9,12 @@ def flatten(xs: IterableAny) -> Iterable[Any]:
     Flatten an iterable of iterables into a single iterable.
     :return: Flattened iterable
     """
+    if isinstance(xs, (str, bytes)):
+        yield xs
+        return
+
     for x in xs:
-        if isinstance(x, Iterable) and not isinstance(x, (str, bytes)):
+        if isinstance(x, Iterable):
             yield from flatten(x)
-        else:
-            yield x
+            continue
+        yield x
