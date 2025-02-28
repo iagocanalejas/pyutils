@@ -27,6 +27,17 @@ def remove_parenthesis(text: str, preserve_content: bool = False) -> str:
     return whitespaces_clean(re.sub(r"\([\w\-_−–#: !+]*\)", "", text))
 
 
+def remove_brackets(text: str, preserve_content: bool = False) -> str:
+    """
+    :return text without brackets and its content
+    """
+    if preserve_content:
+        return whitespaces_clean(text.replace("{", "").replace("}", "").replace("[", "").replace("]", ""))
+    text = re.sub(r"\{[\w\d\-_−–#: !+\.]*}", "", text)
+    text = re.sub(r"\[[\w\d\-_−–#: !+\.]*\]", "", text)
+    return whitespaces_clean(text)
+
+
 def remove_symbols(text: str, preserve_quotes: bool = False) -> str:
     """
     :return text without symbols

@@ -21,6 +21,7 @@ A set of common used functions/classes I end up using in my projects.
     - whitespaces_clean
     - remove_symbols
     - remove_parenthesis
+    - remove_brackets
     - remove_conjunctions
     - lstrip_conjunctions
     - remove_roman

@@ -3,6 +3,7 @@ from .cleanup import (
     whitespaces_clean as whitespaces_clean,
     remove_symbols as remove_symbols,
     remove_parenthesis as remove_parenthesis,
+    remove_brackets as remove_brackets,
     remove_conjunctions as remove_conjunctions,
     lstrip_conjunctions as lstrip_conjunctions,
     remove_roman as remove_roman,
