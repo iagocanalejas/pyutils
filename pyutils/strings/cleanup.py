@@ -45,6 +45,13 @@ def remove_roman(text: str) -> str:
     return whitespaces_clean(" ".join(w for w in text.split() if find_roman(re.sub(r"[\'\".:]", "", w)) is None))
 
 
+def remove_trailing_hyphen(word: str) -> str:
+    """
+    :return word without trailing hyphen
+    """
+    return re.sub(r"- ?$", "", word).strip()
+
+
 GENDERS = [
     "FEMENINA",
     "FEMENINO",

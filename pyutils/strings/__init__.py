@@ -7,6 +7,7 @@ from .cleanup import (
     lstrip_conjunctions as lstrip_conjunctions,
     remove_roman as remove_roman,
     remove_genders as remove_genders,
+    remove_trailing_hyphen as remove_trailing_hyphen,
     GENDERS as GENDERS,
     CONJUNCTIONS as CONJUNCTIONS,
 )
