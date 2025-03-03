@@ -6,61 +6,89 @@ from .roman import find_roman
 
 def unaccent(text: str) -> str:
     """
-    :return text without accents
+    Removes diacritical marks (accents) from characters in the given text.
+
+    :param text: The input string with potential accented characters.
+    :return: The modified text without accents.
     """
     return "".join(c for c in unicodedata.normalize("NFD", text) if not unicodedata.combining(c))
 
 
 def whitespaces_clean(text: str) -> str:
     """
-    :return text without leading, trailing and multiple whitespaces
+    Removes leading, trailing, and multiple consecutive whitespaces, replacing them with a single space.
+
+    :param text: The input string.
+    :return: The cleaned string with normalized whitespace.
     """
-    return re.sub(r"\s", " ", re.sub(r"\s+", " ", text)).strip()
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def remove_parenthesis(text: str, preserve_content: bool = False) -> str:
     """
-    :return text without parenthesis and its content
+    Removes parentheses and their content from the given text.
+
+    :param text: The input string.
+    :param preserve_content: If True, removes only the parentheses but keeps the content inside.
+    :return: The modified text without parentheses or their content.
     """
     if preserve_content:
         return whitespaces_clean(text.replace("(", "").replace(")", ""))
-    return whitespaces_clean(re.sub(r"\([\w\-_−–#: !+]*\)", "", text))
+
+    while "(" in text and ")" in text:
+        text = re.sub(r"\([^()]*\)", "", text)
+    return whitespaces_clean(text)
 
 
 def remove_brackets(text: str, preserve_content: bool = False) -> str:
     """
-    :return text without brackets and its content
+    Removes brackets `{}` and `[]` along with their content from the given text.
+
+    :param text: The input string.
+    :param preserve_content: If True, removes only the brackets but keeps the content inside.
+    :return: The modified text without brackets or their content.
     """
     if preserve_content:
         return whitespaces_clean(text.replace("{", "").replace("}", "").replace("[", "").replace("]", ""))
-    text = re.sub(r"\{[\w\d\-_−–#: !+\.]*}", "", text)
-    text = re.sub(r"\[[\w\d\-_−–#: !+\.]*\]", "", text)
+
+    while "{" in text and "}" in text:
+        text = re.sub(r"\{[^{}]*\}", "", text)
+    while "[" in text and "]" in text:
+        text = re.sub(r"\[[^\[\]]*\]", "", text)
     return whitespaces_clean(text)
 
 
 def remove_symbols(text: str, preserve_quotes: bool = False) -> str:
     """
-    :return text without symbols
+    Removes symbols from the given text while optionally preserving quotes.
+
+    :param text: The input string.
+    :param preserve_quotes: If True, keeps single and double quotes.
+    :return: The cleaned text without unwanted symbols.
     """
-    text = re.sub(r"[^\S\- ]", "", text)
-    if not preserve_quotes:
-        # maybe I'm dumb but I'm unable to do this within the regex
-        text = text.replace('"', " ").replace("'", " ")
+    allowed_pattern = r"[^\w\s\-\"']" if preserve_quotes else r"[^\w\s\-]"
+    text = re.sub(allowed_pattern, "", text)
     return whitespaces_clean(text)
-
-
-def remove_roman(text: str) -> str:
-    """
-    :return text without roman numbers
-    """
-    return whitespaces_clean(" ".join(w for w in text.split() if find_roman(re.sub(r"[\'\".:]", "", w)) is None))
 
 
 def remove_trailing_hyphen(word: str) -> str:
     """
-    :return word without trailing hyphen
+    Removes a trailing hyphen (optionally followed by a space) from a word.
+
+    :param word: The input string.
+    :return: The modified string without a trailing hyphen.
     """
-    return re.sub(r"- ?$", "", word).strip()
+    return re.sub(r"-\s*$", "", word).strip()
+
+
+def remove_roman(text: str) -> str:
+    """
+    Removes Roman numerals from a given text.
+
+    :param text: The input string.
+    :return: The text without Roman numerals.
+    """
+    return whitespaces_clean(" ".join(w for w in text.split() if find_roman(re.sub(r"[\'\".:]", "", w)) is None))
 
 
 GENDERS = [
