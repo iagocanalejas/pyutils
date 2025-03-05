@@ -71,6 +71,26 @@ def remove_symbols(text: str, preserve_quotes: bool = False) -> str:
     return whitespaces_clean(text)
 
 
+def remove_hyphens(word: str) -> str:
+    """
+    Removes leading and trailing hyphens from a word.
+
+    :param word: The input string.
+    :return: The modified string without leading or trailing hyphens.
+    """
+    return remove_leading_hyphen(remove_trailing_hyphen(word))
+
+
+def remove_leading_hyphen(word: str) -> str:
+    """
+    Removes a leading hyphen (optionally followed by a space) from a word.
+
+    :param word: The input string.
+    :return: The modified string without a leading hyphen.
+    """
+    return re.sub(r"^\s*-\s*", "", word).strip()
+
+
 def remove_trailing_hyphen(word: str) -> str:
     """
     Removes a trailing hyphen (optionally followed by a space) from a word.
@@ -78,7 +98,7 @@ def remove_trailing_hyphen(word: str) -> str:
     :param word: The input string.
     :return: The modified string without a trailing hyphen.
     """
-    return re.sub(r"-\s*$", "", word).strip()
+    return re.sub(r"\s*-\s*$", "", word).strip()
 
 
 def remove_roman(text: str) -> str:

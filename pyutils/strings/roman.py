@@ -14,21 +14,41 @@ def find_roman(word: str) -> str | None:
 
 def int_to_roman(num: int) -> str:
     """
-    :return: converts an integer number to a roman number
+    Convert an integer to a Roman numeral.
+
+    :param num: Integer to convert (must be between 1 and 3999)
+    :return: Roman numeral representation of the integer
     """
-    val = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
-    syb = ("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I")
-    roman_num = ""
-    for i in range(len(val)):
-        count = int(num / val[i])
-        roman_num += syb[i] * count
-        num -= val[i] * count
-    return roman_num
+    val_syms = [
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I"),
+    ]
+
+    roman_num = []
+    for value, symbol in val_syms:
+        count, num = divmod(num, value)
+        roman_num.append(symbol * count)
+
+    return "".join(roman_num)
 
 
 def roman_to_int(s: str) -> int:
     """
-    :return: converts a roman number to an integer number
+    Convert a Roman numeral to an integer.
+
+    :param s: Roman numeral string (valid input assumed)
+    :return: Integer representation of the Roman numeral
     """
     roman = {
         "I": 1,
