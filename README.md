@@ -26,6 +26,8 @@ A set of common used functions/classes I end up using in my projects.
     - lstrip_conjunctions
     - remove_roman
     - remove_genders
+    - remove_hyphens
+    - remove_leading_hyphen
     - remove_trailing_hyphen
     - find_date
     - int_to_roman

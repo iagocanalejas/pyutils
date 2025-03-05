@@ -8,6 +8,8 @@ from .cleanup import (
     lstrip_conjunctions as lstrip_conjunctions,
     remove_roman as remove_roman,
     remove_genders as remove_genders,
+    remove_hyphens as remove_hyphens,
+    remove_leading_hyphen as remove_leading_hyphen,
     remove_trailing_hyphen as remove_trailing_hyphen,
     GENDERS as GENDERS,
     CONJUNCTIONS as CONJUNCTIONS,
