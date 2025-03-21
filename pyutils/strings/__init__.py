@@ -11,6 +11,8 @@ from .cleanup import (
     remove_hyphens as remove_hyphens,
     remove_leading_hyphen as remove_leading_hyphen,
     remove_trailing_hyphen as remove_trailing_hyphen,
+    camel_to_snake as camel_to_snake,
+    camel_to_snake_dict as camel_to_snake_dict,
     GENDERS as GENDERS,
     CONJUNCTIONS as CONJUNCTIONS,
 )

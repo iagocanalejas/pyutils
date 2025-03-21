@@ -19,6 +19,21 @@ def week_to_date(week: int, year: int) -> datetime:
     return ret
 
 
+def week_range_from_date(d: datetime | date) -> tuple[date, date]:
+    """
+    Return the first and last day of the week for the given datetime.
+
+    :param d: A datetime object.
+    :return: A tuple containing the first and last day of the week as datetime objects.
+    """
+    # Get the start of the week (Monday)
+    start_of_week = d - timedelta(days=d.isoweekday() - 1)
+    # Get the end of the week (Sunday)
+    end_of_week = start_of_week + timedelta(days=6)
+
+    return start_of_week, end_of_week
+
+
 def weeks_between(d1: datetime, d2: datetime) -> timedelta:
     """
     Distance weeks between two dates. (https://stackoverflow.com/a/14191915)

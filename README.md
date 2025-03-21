@@ -12,6 +12,7 @@ A set of common used functions/classes I end up using in my projects.
     - only_one_not_none
     - week_to_date
     - weeks_between
+    - week_range_from_date
     - generate_unique_code
     - copy
 
@@ -38,6 +39,8 @@ A set of common used functions/classes I end up using in my projects.
     - levenshtein_distance
     - match_normalizations
     - apply_replaces
+    - camel_to_snake
+    - camel_to_snake_dict
 
 # Validators
 
@@ -46,3 +49,4 @@ A set of common used functions/classes I end up using in my projects.
     - DNIValidator
     - is_valid_dni
     - is_valid_email
+    - is_valid_url

@@ -5,5 +5,9 @@ from .checks import (
     all_not_none as all_not_none,
     only_one_not_none as only_one_not_none,
 )
-from .dates import week_to_date as week_to_date, weeks_between as weeks_between
+from .dates import (
+    week_to_date as week_to_date,
+    weeks_between as weeks_between,
+    week_range_from_date as week_range_from_date,
+)
 from .utils import generate_unique_code as generate_unique_code, copy as copy, clean_dict as clean_dict

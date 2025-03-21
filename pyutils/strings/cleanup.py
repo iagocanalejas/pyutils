@@ -1,5 +1,6 @@
 import re
 import unicodedata
+from typing import Any
 
 from .roman import find_roman
 
@@ -176,3 +177,28 @@ def lstrip_conjunctions(text: str) -> str:
         if word not in CONJUNCTIONS:
             return " ".join(words[idx:])
     return ""
+
+
+CAMEL_TO_SNAKE = re.compile(r"((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z])|(?<=[a-zA-Z])[0-9])")
+
+
+def camel_to_snake(camel_str: str) -> str:
+    snake_str = CAMEL_TO_SNAKE.sub(r"_\1", camel_str)
+    return snake_str.lower()
+
+
+def camel_to_snake_dict(camel_dict: dict[str, Any]) -> dict[str, Any]:
+    """
+    Converts a dictionary's keys from camel case to snake case. This version
+    handles nested dictionaries and lists.
+    """
+    snake_dict: dict[str, Any] = {}
+    for k, v in camel_dict.items():
+        new_key = camel_to_snake(k)
+        if isinstance(v, dict):
+            snake_dict[new_key] = camel_to_snake_dict(v)
+        elif isinstance(v, list):
+            snake_dict[new_key] = [camel_to_snake_dict(i) if isinstance(i, dict) else i for i in v]
+        else:
+            snake_dict[new_key] = v
+    return snake_dict
