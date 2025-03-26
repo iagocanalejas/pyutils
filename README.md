@@ -13,8 +13,8 @@ A set of common used functions/classes I end up using in my projects.
     - week_to_date
     - weeks_between
     - week_range_from_date
+    - date_range
     - generate_unique_code
-    - copy
 
 # Strings
 
@@ -40,7 +40,12 @@ A set of common used functions/classes I end up using in my projects.
     - match_normalizations
     - apply_replaces
     - camel_to_snake
+
+# Dicts
+
     - camel_to_snake_dict
+    - copy_dict
+    - clean_dict
 
 # Validators
 

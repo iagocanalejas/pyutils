@@ -4,6 +4,7 @@ from datetime import date, datetime, timedelta
 def week_to_date(week: int, year: int) -> datetime:
     """
     Return datetime for the given week, year. (https://stackoverflow.com/a/17087427)
+
     :param week: number
     :param year: number
     :return: datetime
@@ -26,17 +27,14 @@ def week_range_from_date(d: datetime | date) -> tuple[date, date]:
     :param d: A datetime object.
     :return: A tuple containing the first and last day of the week as datetime objects.
     """
-    # Get the start of the week (Monday)
     start_of_week = d - timedelta(days=d.isoweekday() - 1)
-    # Get the end of the week (Sunday)
-    end_of_week = start_of_week + timedelta(days=6)
-
-    return start_of_week, end_of_week
+    return start_of_week, start_of_week + timedelta(days=6)
 
 
 def weeks_between(d1: datetime, d2: datetime) -> timedelta:
     """
     Distance weeks between two dates. (https://stackoverflow.com/a/14191915)
+
     :param d1: datetime
     :param d2: datetime
     :return: timedelta
@@ -44,3 +42,14 @@ def weeks_between(d1: datetime, d2: datetime) -> timedelta:
     monday1 = d1 - timedelta(days=d1.weekday())
     monday2 = d2 - timedelta(days=d2.weekday())
     return timedelta(weeks=(monday2 - monday1).days / 7)
+
+
+def date_range(start_date: date, end_date: date) -> list[date]:
+    """
+    Generate a list of dates between start_date and end_date (inclusive).
+
+    :param start_date: date
+    :param end_date: date
+    :return: list of dates
+    """
+    return [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
