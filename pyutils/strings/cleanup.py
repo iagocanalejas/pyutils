@@ -88,7 +88,7 @@ def remove_leading_hyphen(word: str) -> str:
     :param word: The input string.
     :return: The modified string without a leading hyphen.
     """
-    return re.sub(r"^\s*-\s*", "", word).strip()
+    return re.sub(r"^\s*-+\s*", "", word).strip()
 
 
 def remove_trailing_hyphen(word: str) -> str:
@@ -98,7 +98,7 @@ def remove_trailing_hyphen(word: str) -> str:
     :param word: The input string.
     :return: The modified string without a trailing hyphen.
     """
-    return re.sub(r"\s*-\s*$", "", word).strip()
+    return re.sub(r"\s*-+\s*$", "", word).strip()
 
 
 def remove_roman(text: str) -> str:

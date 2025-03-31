@@ -2,6 +2,7 @@ import unittest
 
 from pyutils.strings import (
     remove_brackets,
+    remove_hyphens,
     remove_parenthesis,
     remove_roman,
     remove_symbols,
@@ -141,3 +142,19 @@ class TestCleanup(unittest.TestCase):
 
         for v, r in values:
             self.assertEqual(remove_roman(v), r)
+
+    def test_remove_hyphens(self):
+        values = [
+            ("Hello-world", "Hello-world"),
+            ("--Leading", "Leading"),
+            ("Trailing--", "Trailing"),
+            ("--Both--", "Both"),
+            ("--Multiple--hyphens--", "Multiple--hyphens"),
+            ("--  --", ""),
+            ("---", ""),
+            ("No hyphens here", "No hyphens here"),
+            ("--Multiple--hyphens--inside--", "Multiple--hyphens--inside"),
+        ]
+
+        for v, r in values:
+            self.assertEqual(remove_hyphens(v), r)

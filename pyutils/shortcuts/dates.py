@@ -31,14 +31,18 @@ def week_range_from_date(d: datetime | date) -> tuple[date, date]:
     return start_of_week, start_of_week + timedelta(days=6)
 
 
-def weeks_between(d1: datetime, d2: datetime) -> timedelta:
+def weeks_between(d1: datetime | date, d2: datetime | date) -> timedelta:
     """
     Distance weeks between two dates. (https://stackoverflow.com/a/14191915)
 
-    :param d1: datetime
-    :param d2: datetime
+    :param d1: datetime | date
+    :param d2: datetime | date
     :return: timedelta
     """
+    if isinstance(d1, date):
+        d1 = datetime.combine(d1, datetime.min.time())
+    if isinstance(d2, date):
+        d2 = datetime.combine(d2, datetime.min.time())
     monday1 = d1 - timedelta(days=d1.weekday())
     monday2 = d2 - timedelta(days=d2.weekday())
     return timedelta(weeks=(monday2 - monday1).days / 7)
