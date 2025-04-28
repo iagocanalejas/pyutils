@@ -56,3 +56,4 @@ A set of common used functions/classes I end up using in my projects.
     - is_valid_email
     - is_valid_url
 	- is_valid_isin
+	- is_valid_figi
