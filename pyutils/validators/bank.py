@@ -1,5 +1,4 @@
 import string
-from typing import override
 
 # Dictionary of ISO country code to IBAN length.
 #
@@ -399,7 +398,6 @@ class IBANValidator:
                         f"Explicitly requested country code {code} is not part of the configured IBAN validation set."
                     )
 
-    @override
     def __eq__(self, other: object, /) -> bool:
         return (
             isinstance(other, IBANValidator)
@@ -464,7 +462,6 @@ class BICValidator:
     https://en.wikipedia.org/wiki/ISO_9362#Structure
     """
 
-    @override
     def __eq__(self, _):
         # There is no outside modification of properties so this should always be true by default.
         return True
