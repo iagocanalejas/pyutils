@@ -20,6 +20,7 @@ from .datetime import (
     find_time as find_time,
 )
 from .integer import int_or_none as int_or_none
+from .money import symbol_to_currency as symbol_to_currency, split_money as split_money
 from .lemma import expand_lemmas as expand_lemmas, normalize_synonyms as normalize_synonyms
 from .normalize import (
     match_normalization as match_normalization,

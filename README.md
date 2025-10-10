@@ -40,6 +40,8 @@ A set of common used functions/classes I end up using in my projects.
     - match_normalizations
     - apply_replaces
     - camel_to_snake
+    - symbol_to_currency
+    - split_money
 
 # Dicts
 
@@ -55,5 +57,5 @@ A set of common used functions/classes I end up using in my projects.
     - is_valid_dni
     - is_valid_email
     - is_valid_url
-	- is_valid_isin
-	- is_valid_figi
+    - is_valid_isin
+    - is_valid_figi
