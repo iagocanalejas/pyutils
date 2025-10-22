@@ -59,3 +59,8 @@ A set of common used functions/classes I end up using in my projects.
     - is_valid_url
     - is_valid_isin
     - is_valid_figi
+
+# Transformers
+
+    - camel_to_snake
+    - int_to_european

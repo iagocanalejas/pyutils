@@ -35,4 +35,7 @@ from .similarity import (
     closest_result as closest_result,
     levenshtein_distance as levenshtein_distance,
 )
-from .transformers import camel_to_snake as camel_to_snake
+from .transformers import (
+    camel_to_snake as camel_to_snake,
+    int_to_european as int_to_european,
+)
